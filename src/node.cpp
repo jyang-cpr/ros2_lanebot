@@ -33,20 +33,24 @@ class MinimalSubscriber : public rclcpp::Node
   private:
     void topic_callback(const sensor_msgs::msg::Image::SharedPtr msg) const
     {
-      RCLCPP_INFO(this->get_logger(), "Image");
-
       cv_bridge::CvImagePtr cv_ptr;
+      cv::Mat greyMat;
+      cv::Mat smoothMat;
+
       try
       {
           cv_ptr = cv_bridge::toCvCopy(msg, msg->encoding);
+          cv::cvtColor(cv_ptr->image, greyMat, cv::COLOR_BGR2GRAY);
+          cv::GaussianBlur(greyMat, smoothMat, cv::Size( 5, 5), 0, 0);
       }
       catch (cv_bridge::Exception& e)
       {
           RCLCPP_ERROR(this->get_logger(), "cv_bridge exception: %s", e.what());
+
           return;
       }
 
-      cv::imshow(OPENCV_WINDOW, cv_ptr->image);
+      cv::imshow(OPENCV_WINDOW, smoothMat);
       cv::waitKey(3);
     }
 
