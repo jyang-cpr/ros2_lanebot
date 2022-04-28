@@ -1,0 +1,21 @@
+<package format="2">
+  <name>ros2_lanebot</name>
+  <version>0.0.0</version>
+  <description>Lanebot.</description>
+  <maintainer email="jyang@clearpathrobotics.com">Joey Yang</maintainer>
+  <license>BSD</license>
+  <author>Joey Yang</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>sensor_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>cv_bridge</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
