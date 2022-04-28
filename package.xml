@@ -1,7 +1,7 @@
 <package format="2">
   <name>ros2_lanebot</name>
   <version>0.0.0</version>
-  <description>Lanebot.</description>
+  <description>Lane Following Robot Project for Clearpath Robotics' Hack Day 2022.</description>
   <maintainer email="jyang@clearpathrobotics.com">Joey Yang</maintainer>
   <license>BSD</license>
   <author>Joey Yang</author>
